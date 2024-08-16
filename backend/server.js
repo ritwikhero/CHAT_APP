@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
+import userRoutes from "./routes/user.routes.js";
 
 import connectToMongoDb from "./db/dbConnection.js";
 
@@ -13,7 +14,8 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json()); // extract incoming json data
 app.use(cookieParser()); // extracts cookie from the header
 app.use("/api/auth",authRoutes);
-app.use("/api/messages", messageRoutes)
+app.use("/api/messages", messageRoutes);
+app.use("/api/user",userRoutes);
 
 // app.get("/",(req,res)=>{
 //     //root route http://localhost:8000/

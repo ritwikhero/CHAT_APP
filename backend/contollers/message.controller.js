@@ -51,8 +51,15 @@ export const getMessage = async(req, res) =>{
         let conversation = await Conversation.findOne({
             participants : {$all : [senderId,userToChatId]}
         }).populate("messages");
+        
+        
+        if(!conversation){
+            return res.status(200).json([]);
+        }
 
-        res.status(200).json(conversation.messages);
+        const messages = conversation.messages;
+        
+        res.status(200).json(messages);
     } catch (error) {
         console.log("Error int getMessage controller ", error.message);
         res.status(500).json({error : "Internal server error"});
