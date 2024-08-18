@@ -15,7 +15,7 @@ app.use(express.json()); // extract incoming json data
 app.use(cookieParser()); // extracts cookie from the header
 app.use("/api/auth",authRoutes);
 app.use("/api/messages", messageRoutes);
-app.use("/api/user",userRoutes);
+app.use("/api/users",userRoutes);
 
 // app.get("/",(req,res)=>{
 //     //root route http://localhost:8000/
