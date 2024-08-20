@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <div className='p-4 h-screen flex items-center justify-center'>    
-        <div> <Login/> </div>
-        <div> <Home/> </div>
-        <div> <SingUp/> </div>
+        {/* <div> <Login/> </div> */}
+        {/* {/* <div> <Home/> </div>  */}
+        <div> <SingUp/> </div> 
       </div>
     </>
   )
