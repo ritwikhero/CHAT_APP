@@ -1,5 +1,5 @@
 import React from 'react'
-
+import GenderCheckbox from './GenderCheckbox'
 const SingUp = () => {
   return (
     <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
@@ -37,11 +37,15 @@ const SingUp = () => {
           <input type="text" placeholder='Confirm Password' className='w-full input input-bordered h-10'/>
           </div>
 
-          {/* Gender Text box goes here */}
+          {/* <GenderCheckbox></GenderCheckbox> */}
+          <GenderCheckbox></GenderCheckbox>
 
           <a href="#" className='text-sm text-amber-50 hover:underline hover:text-blue-600 mt-2 inline-block'>
                   Already have an account ?
           </a>
+          <div>
+                  <button className='btn btn-block btn-sm mt-2'>Sign Up</button>
+          </div>
         </form>
       </div>
 
