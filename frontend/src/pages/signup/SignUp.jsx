@@ -1,26 +1,28 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import GenderCheckbox from './GenderCheckbox'
 import { Link } from 'react-router-dom'
 import useSignUp from '../../hooks/useSignUp'
 const SignUp = () => {
   const [inputs,setInputs] = useState({
-    fullName : '',
-    username : '',
-    password : '',
-    confirmPassword : '',
-    gender : ''
+    fullName : "",
+    userName : "",
+    Password : "" ,
+    confirmPassword : "",
+    gender : ""
   })
 
   const {loading,signup} = useSignUp();
+
+  const handleCheckboxChange = (gender) => {
+    setInputs({...inputs, gender});
+  };
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(inputs)
-  }
+    await signup(inputs);
+  };
 
-  const handleCheckboxChange = (gender) => {
-    setInputs({...inputs,gender});
-  }
+
 
   return (
     <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
@@ -35,6 +37,7 @@ const SignUp = () => {
             <span className='text-base label-text'>Full name</span>
           </label>
           <input type="text" placeholder='John Doe' className='w-full input input-bordered h-10'
+          value={inputs.fullName}
           onChange={(e) => setInputs({...inputs, fullName: e.target.value})}/>
           </div>
 
@@ -43,8 +46,8 @@ const SignUp = () => {
             <span className='text-base label-text'>Username</span>
           </label>
           <input type="text" placeholder='JohnDoe' className='w-full input input-bordered h-10'
-          value={inputs.username}
-          onChange={(e) => setInputs({...inputs, username: e.target.value})}
+          value={inputs.userName}
+          onChange={(e) => setInputs({...inputs, userName: e.target.value})}
           />
           </div>
 
@@ -53,8 +56,8 @@ const SignUp = () => {
             <span className='text-base label-text'>Password</span>
           </label>
           <input type="password" placeholder='Enter Password' className='w-full input input-bordered h-10'
-          value={inputs.password}
-          onChange={(e) => setInputs({...inputs, password: e.target.value})}/>
+          value={inputs.Password}
+          onChange={(e) => setInputs({...inputs, Password: e.target.value})}/>
           </div>
 
           <div>
@@ -79,7 +82,7 @@ const SignUp = () => {
       </div>
 
     </div>
-  )
-}
+  );
+};
 
 export default SignUp;
