@@ -1,11 +1,10 @@
 import React from 'react'
 import Message from './Message'
-import { useActionData } from 'react-router-dom'
 import useGetMessages from '../../hooks/useGetMessages'
 import MessageSkeleton from '../skeletons/MessageSkeleton'
 
 const Messages = () => {
-  const {loading,messages} = useGetMessages();
+  const {messages, loading} = useGetMessages();
   console.log("Messages : ", messages);
   return (
     <div className='px-4 flex-1 overflow-auto'>
@@ -21,4 +20,4 @@ const Messages = () => {
   )
 }
 
-export default Messages
+export default Messages;
